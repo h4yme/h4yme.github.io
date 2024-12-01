@@ -33,6 +33,26 @@
     publicKey: "RgDxuPfshgy24B846",
   });
   })();
+
+    document.addEventListener("DOMContentLoaded", ()=>{
+      function counter(id, start, end, duration){
+        let obj = document.getElementById(id),
+          current = start,
+          range = end - start,
+          increment = end > start ? 1 : -1,
+          step = Math.abs(Math.floor(duration/range)),
+          timer = setInterval(( => {
+            current += increment;
+            obj.textContent = current;
+            if(current == end){
+              clearInterval(timer)
+            }
+          },step);
+      }
+
+      counter("count1",0,5,3000);
+      counter("count2",100,300,3000);
+      counter("count3",0,2,3000);
   </script>
 
 </head>
@@ -190,7 +210,7 @@
         <div class="row text-uppercase bg-black rounded-4 p-3 mt-5">
           <div class="col-md-3">
             <div class="d-flex align-items-center gap-4">
-              <h2 class="display-2 text-light">
+              <h2 class="display-2 text-light" id="count1">
                 5
               </h2>
               <p class="text-light-emphasis justify-content-center m-0 ls-4">
@@ -200,7 +220,7 @@
           </div>
           <div class="col-md-3">
             <div class="d-flex align-items-center gap-4">
-              <h2 class="display-2 text-light">
+              <h2 class="display-2 text-light" id="count2">
                 300
               </h2>
               <p class="text-light-emphasis justify-content-center m-0 ls-4">
@@ -210,7 +230,7 @@
           </div>
           <div class="col-md-3">
             <div class="d-flex align-items-center gap-4">
-              <h2 class="display-2 text-light">
+              <h2 class="display-2 text-light" id="count3">
                 2
               </h2>
               <p class="text-light-emphasis justify-content-center m-0 ls-4">
